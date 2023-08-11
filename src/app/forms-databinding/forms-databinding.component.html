@@ -1,0 +1,165 @@
+<section id="header" class="navbar position-sticky navbar-light  d-flex m-2 rounded">
+    <div class="d-flex justify-content-start p-2 m-0">
+        <span class="navbar-brand pt-2 mr-2">KMNK</span>
+        <input type="text" class="nav-item form-control" />
+        <button class="nav-item btn btn-outline-success">Search</button>
+    </div>
+    <div class="d-flex justify-content-end">
+        <div class="d-inline-flex  justify-content-end m-0" *ngIf="!existingUser">
+            <span class="nav-item m-2" (click)="showLogin()">Login</span>
+            <span class="nav-item m-2" (click)="showregister()">Register</span>
+        </div>
+        <div class="d-inline-flex justify-content-end m-0" *ngIf="existingUser">
+            <span type='button' class="nav-item m-2" (click)="LogOut()">Logout</span>
+            <span class="nav-item m-2">{{existingUser}}</span>
+            <!-- <div class="nav-item m-2">Profile</div> -->
+        </div>
+
+    </div>
+</section>
+
+
+<section id="home" *ngIf="!existingUser">
+    <div>
+        <h1 class="welcome">Hello, </h1>
+        <h1 class="welcome">Welcome to our online Books Shopping app</h1>
+        <h3 class="welcome">create you first acount with us if you ar new to our websit by clicking <b>Register</b> or
+            <b>Login</b> </h3>
+    </div>
+</section>
+
+<section id="home" *ngIf="existingUser">
+    <div>
+        <h1 class="welcome">Hello, {{existingUser}} </h1>
+        <h1 class="welcome">Welcome to our online Books Shopping app</h1>
+    </div>
+
+    <div class="m-2 p-2 d-flex flex-wrap justify-content-center">
+        <div class="card rounded custom-box-shadow-card m-2 mb-3 p-3" *ngFor="let product of products">
+            <div class="card-title d-flex justify-content-center rounded-1 custom-box-shadow-title">{{product.bname}}
+            </div>
+            <div class="card-body custom-box-shadow-body ">
+                <div class="row ">
+                    <label class="col-6 col-md-6">Writer:</label>
+                    <span class="col-6 col-md-6">{{product.bookWriterName}}</span>
+                </div>
+                <div class="row">
+                    <label class="col-6 col-md-6">Language:</label>
+                    <span class="col-6 col-md-6">{{product.language}}</span>
+                </div>
+                <div class="row">
+                    <label class="col-6 col-md-6">Genres:</label>
+                    <span class="col-6 col-md-6">{{product.bgenres}}</span>
+                </div>
+                <div class="row">
+                    <label class="col-6 col-md-6">Price:</label>
+                    <span class="col-6 col-md-6">{{product.price}}</span>
+                </div>
+            </div>
+
+            <div class="form-row row">
+                <div class="mt-2 text-center form-group col-md-12 col-12">
+                    <button type="submit" class=" btn btn-primary mb-1 w-100">Add To Cart</button>
+                </div>
+                <div class="mt-2 text-center form-group col-md-12 col-12">
+                    <button type="submit" class=" btn btn-primary mb-1 w-100">Buy Now</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="login" *ngIf="isLoginShow" class="card  p-2 m-2 custom-box-shadow">
+    <div class="card-title m-auto">
+        <span>Template Driven Form</span>
+    </div>
+    <form #myTemplateDrivenForm="ngForm" (ngSubmit)="onTemplateDriven(myTemplateDrivenForm.value)">
+        <div class="card-body">
+            <div class="form-row row">
+                <div class="form-group col-md-6 col-12">
+                    <label for="uemail" class="control-label">Email</label>
+                    <input type="text" class="form-control" id="uemail" name="email" ngModel />
+                </div>
+                <div class="form-group col-md-6 col-12">
+                    <label for="upassword" class="control-label">Password</label>
+                    <input type="password" class="form-control" id="upassword" name="password" ngModel />
+                </div>
+            </div>
+            <div class="form-row row">
+                <div class="mt-2 text-center form-group col-md-6 col-12">
+                    <button type="submit" class=" btn btn-primary mb-1 w-100">Submit</button>
+                </div>
+                <div class="mt-2 text-center form-group col-md-6 col-12">
+                    <button type="reset" class=" btn btn-primary mb-1 w-100">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<pre></pre>
+<pre></pre>
+
+<section id="register" *ngIf="isRegisterShow" class="card p-2 m-2 custom-box-shadow">
+    <div class="card-title m-auto"><span>Reactive Form</span></div>
+    <div class="card-body">
+        <form [formGroup]="myReactiveForm" (ngSubmit)="onReactive()">
+            <div class="form-row row">
+                <div class="from-group col-md-6 col-12">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" formControlName="username" id="name" />
+                    <span *ngIf="submitted && myReactiveForm.get('username')?.errors as nameErrors">
+                        <span *ngFor="let validatorName of getKeys(nameErrors)">
+                            <span *ngIf="nameErrors[validatorName]">
+                                {{getValidatorErrorMessage(validatorName)}}
+                            </span>
+                        </span>
+                    </span>
+
+                </div>
+                <div class="from-group col-md-6 col-12">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                    <span *ngIf="submitted && myReactiveForm.get('email')?.errors as emailErrors">
+                        <span *ngFor="let validatorName of getKeys(emailErrors)">
+                            <span *ngIf="emailErrors[validatorName]">
+                                {{getValidatorErrorMessage(validatorName)}}
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                <div class="from-group col-md-6 col-12">
+                    <label for="phone">Mobile</label>
+                    <input type="number" class="form-control" id="phone" formControlName="phone">
+                    <span *ngIf="submitted && myReactiveForm.get('phone')?.errors as phoneErrors">
+                        <span *ngFor="let validatorName of getKeys(phoneErrors)">
+                            <span *ngIf="phoneErrors[validatorName]">
+                                {{getValidatorErrorMessage(validatorName)}}
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                <div class=" from-group col-md-6 col-12">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    <span *ngIf="submitted && myReactiveForm.get('password')?.errors as passwordErrors">
+                        <span *ngFor="let validatorName of getKeys(passwordErrors)">
+                            <span *ngIf="passwordErrors[validatorName]">
+                                {{getValidatorErrorMessage(validatorName)}}
+                            </span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-row row mt-3">
+                <div class="from-group col-md-6 col-12 mb-2">
+                    <button type="submit" class="btn btn-info w-100">Submit</button>
+                </div>
+                <div class="from-group col-md-6 col-12">
+                    <button type="reset" class="btn btn-info w-100">Clear Fields</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,77 @@
+<!-- property binding -->
+<p [title]="mytitle">property-binding works!</p>
+<!-- Interpolation -->
+<p>Interpolation works! {{ mytitle }}</p>
+
+<!-- Event Binding -->
+<button (click)="HandleClick()">{{ eventbind ? "My turn" : "Hit me" }}</button>
+<h4>{{ eventbind }}</h4>
+
+<!-- Two way data binding -->
+<input [(ngModel)]="twoWayBind" type="text" />
+<h4>{{ twoWayBind ? "Now typing: " + twoWayBind : "Nothing Entered" }}</h4>
+
+<!-- Built-in directives -->
+
+<!-- *ngIf -->
+<input type="text" [(ngModel)]="flag">
+<div *ngIf='flag=="true"'>condition satisfied and showing</div>
+<pre></pre>
+
+<!-- *ngFor -->
+<span *ngFor="let item of items; let i = index" [ngClass]="{ 'even': i % 2 === 0, 'odd': i % 2 !== 0 }">
+  {{item}}
+</span>
+<pre></pre>
+
+<!-- [ngSwitch] and [ngStyle] -->
+<input for="cond" [(ngModel)]="condition" type="text" placeholder="enter value 0-4" />
+<input for="cond" [(ngModel)]="textColor" type="text" placeholder="enter color for text" />
+<input for="cond" [(ngModel)]="bgColor" type="text" placeholder="enter color for background" />
+<input for="cond" [(ngModel)]="fontSize" type="text" placeholder="enter size for font" />
+<div [ngSwitch]="condition" id="cond">
+  <p *ngSwitchCase="'1'" [ngStyle]="{
+      color: textColor,
+      'background-color': bgColor,
+      'font-size': fontSize + 'px'
+    }">
+    Content 1
+  </p>
+  <p *ngSwitchCase="'2'" [ngStyle]="{
+      color: textColor,
+      'background-color': bgColor,
+      'font-size': fontSize + 'px'
+    }">
+    Content 2
+  </p>
+  <p *ngSwitchCase="'3'" [ngStyle]="{
+      color: textColor,
+      'background-color': bgColor,
+      'font-size': fontSize + 'px'
+    }">
+    Content 3
+  </p>
+  <p *ngSwitchCase="'4'" [ngStyle]="{
+      color: textColor,
+      'background-color': bgColor,
+      'font-size': fontSize + 'px'
+    }">
+    Content 4
+  </p>
+  <p *ngSwitchDefault [ngStyle]="{
+      color: textColor,
+      'background-color': bgColor,
+      'font-size': fontSize + 'px'
+    }">
+    Default Content
+  </p>
+</div>
+
+<!-- [ngClass] -->
+<input type="boolean" [(ngModel)]="flag1">
+<div [ngClass]="{'active':flag1=='true', 'highlighted':flag1!='true'}">ngClass example</div><br>
+
+<ng-container *ngTemplateOutlet="myTemplate1"></ng-container>
+<ng-template #myTemplate1>My Template 1</ng-template>
+<ng-template #myTemplate2>My Template 2</ng-template>
+<ng-template #myTemplate3>My Template 3</ng-template>

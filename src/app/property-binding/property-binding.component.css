@@ -1,0 +1,22 @@
+/* .fontSize{
+    color: FF5733;
+} */
+
+
+.active{
+    color: blue;
+    background-color: aqua;
+}
+
+.highlighted{
+    color: white;
+    background-color: black;
+}
+
+.even {
+    background-color: lightgray;
+  }
+  
+  .odd {
+    background-color: lightblue;
+  }
