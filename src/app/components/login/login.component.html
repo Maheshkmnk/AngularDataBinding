@@ -1,0 +1,28 @@
+<!-- Template Driven Form -->
+<section id="login"  class="card  p-2 m-2 custom-box-shadow">
+    <div class="card-title m-auto">
+        <span>Login</span>
+    </div>
+    <form #myTemplateDrivenForm="ngForm" (ngSubmit)="onTemplateDriven(myTemplateDrivenForm.value)">
+        <div class="card-body">
+            <div class="form-row row">
+                <div class="form-group col-md-6 col-12">
+                    <label for="uemail" class="control-label">Email</label>
+                    <input type="text" class="form-control" id="uemail" name="email" ngModel />
+                </div>
+                <div class="form-group col-md-6 col-12">
+                    <label for="upassword" class="control-label">Password</label>
+                    <input type="password" class="form-control" id="upassword" name="password" ngModel />
+                </div>
+            </div>
+            <div class="form-row row">
+                <div class="mt-2 text-center form-group col-md-6 col-12">
+                    <button type="submit" class=" btn btn-primary mb-1 w-100" >Submit</button>
+                </div>
+                <div class="mt-2 text-center form-group col-md-6 col-12">
+                    <button type="reset" class=" btn btn-primary mb-1 w-100">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

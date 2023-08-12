@@ -1,0 +1,41 @@
+<section  id="home" *ngIf="existingUser">
+    <div>
+        <h1 class="welcome">Hello, {{existingUser}} </h1>
+        <h1 class="welcome">Welcome to our online Books Shopping app</h1>
+    </div>
+
+    <div class="m-2 p-2 d-flex flex-wrap justify-content-center">
+        <div class="card rounded custom-box-shadow-card m-2 mb-3 p-3" *ngFor="let product of products">
+            <div class="card-title d-flex justify-content-center rounded-1 custom-box-shadow-title">{{product.bname}}
+            </div>
+            <div class="card-body custom-box-shadow-body ">
+                <div class="row ">
+                    <label class="col-6 col-md-6">Writer:</label>
+                    <span class="col-6 col-md-6">{{product.bookWriterName}}</span>
+                </div>
+                <div class="row">
+                    <label class="col-6 col-md-6">Language:</label>
+                    <span class="col-6 col-md-6">{{product.language}}</span>
+                </div>
+                <div class="row">
+                    <label class="col-6 col-md-6">Genres:</label>
+                    <span class="col-6 col-md-6">{{product.bgenres}}</span>
+                </div>
+                <div class="row">
+                    <label class="col-6 col-md-6">Price:</label>
+                    <span class="col-6 col-md-6">{{product.price}}</span>
+                </div>
+            </div>
+
+            <div class="form-row row">
+                <div class="mt-2 text-center form-group col-md-12 col-12">
+                    <button type="submit" class=" btn btn-primary mb-1 w-100">Add To Cart</button>
+                </div>
+                <div class="mt-2 text-center form-group col-md-12 col-12">
+                    <button type="submit" class=" btn btn-primary mb-1 w-100">Buy Now</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

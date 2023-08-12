@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from '../services/api/api.service';
+import { ApiService } from '../../../services/api/api.service';
 import {Observable} from 'rxjs';
-import {User} from '../interfaces/interface.user'
+import {User} from '../../../interfaces/interface.user'
 
 
 
@@ -80,8 +80,7 @@ export class FormsDatabindingComponent implements OnInit{
   // Reactive Form code
   myReactiveForm: FormGroup;
   submitted: boolean = false;
-  passwordPattern: any =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
+  passwordPattern: any =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
 
   constructor(private ApiService:ApiService,private fb: FormBuilder) {
     this.myReactiveForm = fb.group({

@@ -6,9 +6,6 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-
-
-
   constructor(private http: HttpClient) { }
 
   getAllProducts(): Observable<any>{

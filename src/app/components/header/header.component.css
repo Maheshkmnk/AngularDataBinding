@@ -1,0 +1,67 @@
+.custom-box-shadow{
+    box-shadow: 0 0 5px 5px rgb(180, 205, 243);
+}
+
+.custom-box-shadow-card{
+    box-shadow: 0 0 5px 5px rgb(180, 205, 243);
+    /* background-image: url("https://img.freepik.com/free-vector/abstract-elegant-winter-book-cover_23-2148798745.jpg?w=740&t=st=1691646961~exp=1691647561~hmac=286a6334293a43bddcafe8f97e4703aefdc291e7ad1f1014e6d1fb0a47f48742"); */
+    /* background-size: auto;
+    background-position: center;
+
+    background-repeat: no-repeat; */
+    color: rgb(19, 25, 25);
+    /* text-align: center; */
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+.welcome{
+    text-align: center;
+}
+
+.custom-box-shadow-title{
+    box-shadow: 0 0 2px 2px rgb(194, 223, 236);
+    background-color: rgb(179, 224, 245);
+}
+
+
+.custom-box-shadow-body{
+   /* background-color:#bcd5cf ;  */
+   border-radius: 3px;
+   
+}
+
+#header{
+    background-image: url("https://img.freepik.com/free-vector/abstract-elegant-winter-book-cover_23-2148798745.jpg?w=740&t=st=1691646961~exp=1691647561~hmac=286a6334293a43bddcafe8f97e4703aefdc291e7ad1f1014e6d1fb0a47f48742");
+} 
+
+button{
+    margin: auto;
+}
+
+label{
+    opacity: 0.6;
+}
+
+
+.triangle-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+  }
+  
+ 
+  
+   .top-left {
+    border-right: 200px solid  #bcd5cf;
+    border-bottom: 200px solid #8ea9a2ed;
+     bottom: 0;
+    right: 0; 
+  }
+   
+ 
+  

@@ -1,0 +1,62 @@
+<section id="register" class="card p-2 m-2 custom-box-shadow">
+    <div class="card-title m-auto"><span>Reactive Form</span></div>
+    <div class="card-body">
+        <form [formGroup]="myReactiveForm" (ngSubmit)="onReactive()">
+            <div class="form-row row">
+                <div class="from-group col-md-6 col-12">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" formControlName="username" id="name" />
+                    <span *ngIf="submitted && myReactiveForm.get('username')?.errors as nameErrors">
+                        <span *ngFor="let validatorName of getKeys(nameErrors)">
+                            <span *ngIf="nameErrors[validatorName]">
+                                {{getValidatorErrorMessage(validatorName)}}
+                            </span>
+                        </span>
+                    </span>
+
+                </div>
+                <div class="from-group col-md-6 col-12">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                    <span *ngIf="submitted && myReactiveForm.get('email')?.errors as emailErrors">
+                        <span *ngFor="let validatorName of getKeys(emailErrors)">
+                            <span *ngIf="emailErrors[validatorName]">
+                                {{getValidatorErrorMessage(validatorName)}}
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                <div class="from-group col-md-6 col-12">
+                    <label for="phone">Mobile</label>
+                    <input type="number" class="form-control" id="phone" formControlName="phone">
+                    <span *ngIf="submitted && myReactiveForm.get('phone')?.errors as phoneErrors">
+                        <span *ngFor="let validatorName of getKeys(phoneErrors)">
+                            <span *ngIf="phoneErrors[validatorName]">
+                                {{getValidatorErrorMessage(validatorName)}}
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                <div class=" from-group col-md-6 col-12">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    <span *ngIf="submitted && myReactiveForm.get('password')?.errors as passwordErrors">
+                        <span *ngFor="let validatorName of getKeys(passwordErrors)">
+                            <span *ngIf="passwordErrors[validatorName]">
+                                {{getValidatorErrorMessage(validatorName)}}
+                            </span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-row row mt-3">
+                <div class="from-group col-md-6 col-12 mb-2">
+                    <button type="submit" class="btn btn-info w-100">Submit</button>
+                </div>
+                <div class="from-group col-md-6 col-12">
+                    <button type="reset" class="btn btn-info w-100">Clear Fields</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
